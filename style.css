@@ -1,0 +1,313 @@
+/* ===================================================================
+   Graceful Shutdown: stylesheet
+   -------------------------------------------------------------------
+   This file is safe to edit. Colors and fonts are all defined as
+   CSS custom properties at the top of :root: change a value there
+   and it updates everywhere it's used.
+=================================================================== */
+
+:root{
+  --bg:#0a0e13;
+  --panel:#10161d;
+  --panel-2:#141b23;
+  --border:#223140;
+  --text:#dbe6ee;
+  --text-dim:#7d8fa0;
+  --accent:#64f0c4;
+  --accent-dim:#3d8f77;
+  --amber:#f5a94e;
+  --rose:#ff8fa3;
+}
+
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:"IBM Plex Sans",-apple-system,BlinkMacSystemFont,sans-serif;
+  padding:32px 16px 80px;
+  line-height:1.6;
+}
+::selection{background:var(--accent);color:#04140f;}
+
+.mono{font-family:"IBM Plex Mono","SF Mono",Consolas,monospace;}
+a{color:var(--accent);}
+
+.wrap{
+  max-width:760px;
+  margin:0 auto;
+}
+
+/* ---- terminal chrome ---- */
+.term{
+  background:var(--panel);
+  border:1px solid var(--border);
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow:0 30px 80px -40px rgba(0,0,0,0.7);
+}
+.term-bar{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  padding:11px 14px;
+  background:var(--panel-2);
+  border-bottom:1px solid var(--border);
+}
+.dot{width:10px;height:10px;border-radius:50%;}
+.dot.r{background:#ff6b6b;}
+.dot.y{background:#ffd166;}
+.dot.g{background:#64f0c4;}
+.term-title{
+  margin-left:8px;
+  font-size:12.5px;
+  color:var(--text-dim);
+  font-family:"IBM Plex Mono",monospace;
+  letter-spacing:.02em;
+}
+.term-body{padding:28px clamp(18px,4vw,40px) 8px;}
+
+/* ---- hero ---- */
+.hero-prompt{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:13.5px;
+  color:var(--text-dim);
+}
+.hero-prompt .sym{color:var(--accent);}
+.hero h1{
+  font-family:"IBM Plex Mono",monospace;
+  font-weight:700;
+  font-size:clamp(28px,6vw,44px);
+  line-height:1.15;
+  letter-spacing:-0.01em;
+  margin:14px 0 6px;
+  text-wrap:balance;
+  color:var(--text);
+}
+.hero h1 .stop{color:var(--rose);}
+.cursor{
+  display:inline-block;
+  width:0.55ch;
+  background:var(--accent);
+  margin-left:2px;
+  animation:blink 1.05s steps(1) infinite;
+}
+@media (prefers-reduced-motion:reduce){ .cursor{animation:none;opacity:1;} }
+@keyframes blink{50%{opacity:0;}}
+.hero p.sub{
+  font-family:"IBM Plex Mono",monospace;
+  color:var(--text-dim);
+  font-size:14.5px;
+  margin:0 0 6px;
+}
+
+/* ---- section eyebrow (the $ prompt headers) ---- */
+.cmd{
+  display:flex;
+  align-items:baseline;
+  gap:10px;
+  margin:0 0 16px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:13.5px;
+  color:var(--text-dim);
+  border-top:1px dashed var(--border);
+  padding-top:26px;
+}
+section:first-of-type .cmd{border-top:none;padding-top:0;}
+.cmd .sym{color:var(--accent);}
+.cmd .cmdtext{color:var(--text);}
+
+section{margin-top:8px;}
+
+/* ---- farewell prose ---- */
+.prose p{margin:0 0 14px;max-width:64ch;}
+.prose code{
+  font-family:"IBM Plex Mono",monospace;
+  background:var(--panel-2);
+  border:1px solid var(--border);
+  padding:1px 6px;
+  border-radius:5px;
+  font-size:0.92em;
+  color:var(--accent);
+}
+.prose .names{color:var(--amber);font-weight:600;}
+
+/* ---- git log ---- */
+.gitlog{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:13px;
+  background:var(--panel-2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:16px 18px;
+  overflow-x:auto;
+}
+.gitlog .row{display:flex;gap:12px;padding:5px 0;white-space:nowrap;}
+.gitlog .hash{color:var(--amber);}
+.gitlog .tag{color:var(--accent);}
+.gitlog .msg{color:var(--text-dim);white-space:normal;}
+
+/* ---- incident report ---- */
+.incident{
+  background:var(--panel-2);
+  border:1px solid var(--border);
+  border-left:3px solid var(--rose);
+  border-radius:8px;
+  padding:20px 22px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:13px;
+}
+.incident .title{
+  font-size:14px;color:var(--rose);font-weight:600;
+  letter-spacing:.02em;margin-bottom:12px;
+}
+.incident dl{display:grid;grid-template-columns:auto 1fr;gap:6px 16px;margin:0 0 14px;}
+.incident dt{color:var(--text-dim);}
+.incident dd{margin:0;color:var(--text);}
+.incident .items div{color:var(--text-dim);padding:2px 0;}
+.incident .items .done{color:var(--accent);}
+
+/* ---- before / after cards ---- */
+.swap-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+  gap:14px;
+}
+.swap{
+  background:var(--panel-2);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:16px 18px;
+  font-size:14px;
+}
+.swap .no,.swap .yes{
+  display:flex;gap:8px;align-items:flex-start;
+  padding:6px 0;
+}
+.swap .no{color:var(--text-dim);}
+.swap .yes{color:var(--text);}
+.swap .mark{font-family:"IBM Plex Mono",monospace;flex:none;}
+.swap .no .mark{color:var(--rose);}
+.swap .yes .mark{color:var(--accent);}
+.swap hr{border:none;border-top:1px dashed var(--border);margin:2px 0;}
+
+/* ---- meme gallery ---- */
+.meme-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
+.meme-card{
+  background:var(--panel-2);
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:10px;
+}
+.meme-card img{
+  width:100%;
+  display:block;
+  border-radius:6px;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+.meme-card figcaption{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11px;
+  color:var(--text-dim);
+  margin:8px 2px 2px;
+}
+
+/* ---- pods table ---- */
+.tablewrap{overflow-x:auto;border:1px solid var(--border);border-radius:8px;}
+table.pods{
+  border-collapse:collapse;
+  width:100%;
+  min-width:640px;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12.5px;
+}
+table.pods th{
+  text-align:left;
+  background:var(--panel-2);
+  color:var(--text-dim);
+  font-weight:500;
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  text-transform:uppercase;
+  letter-spacing:.04em;
+  font-size:11px;
+}
+table.pods td{
+  padding:10px 14px;
+  border-bottom:1px solid var(--border);
+  color:var(--text);
+  white-space:nowrap;
+}
+table.pods tr:last-child td{border-bottom:none;}
+table.pods .status{color:var(--accent);}
+table.pods .role{color:var(--amber);}
+table.pods .notes{color:var(--text-dim);white-space:normal;}
+
+/* ---- badges ---- */
+.badges{display:flex;flex-wrap:wrap;gap:8px;}
+.badge{
+  display:inline-flex;
+  font-family:"IBM Plex Mono",monospace;
+  font-size:11.5px;
+  border:1px solid var(--border);
+  border-radius:5px;
+  overflow:hidden;
+}
+.badge span{padding:5px 9px;}
+.badge .k{background:var(--panel-2);color:var(--text-dim);}
+.badge .v{background:var(--accent);color:#04140f;font-weight:600;}
+.badge.amber .v{background:var(--amber);}
+.badge.rose .v{background:var(--rose);}
+
+/* ---- changelog ---- */
+.changelog .ver{margin:0 0 20px;}
+.changelog .ver:last-child{margin-bottom:0;}
+.changelog .vhead{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:13.5px;
+  color:var(--accent);
+  margin-bottom:4px;
+}
+.changelog .vhead .co{color:var(--text);}
+.changelog .vsub{
+  font-size:12px;color:var(--text-dim);font-family:"IBM Plex Mono",monospace;
+  margin-bottom:8px;
+}
+.changelog ul{margin:0;padding-left:18px;}
+.changelog li{margin:3px 0;font-size:13.5px;color:var(--text-dim);}
+.changelog .current .vhead .co{color:var(--rose);}
+
+/* ---- sign-off terminal block ---- */
+.shell{
+  font-family:"IBM Plex Mono",monospace;
+  font-size:13px;
+  background:#070a0e;
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:18px 20px;
+  overflow-x:auto;
+}
+.shell .l{white-space:pre;padding:2px 0;color:var(--text-dim);}
+.shell .l .sym{color:var(--accent);}
+.shell .l.out{color:var(--text);}
+.shell .l.warn{color:var(--amber);}
+.shell .l.ok{color:var(--accent);}
+
+footer{
+  margin-top:34px;
+  padding-top:22px;
+  border-top:1px dashed var(--border);
+  font-family:"IBM Plex Mono",monospace;
+  font-size:12px;
+  color:var(--text-dim);
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:space-between;
+  gap:10px;
+}
+footer .exit{color:var(--accent);}

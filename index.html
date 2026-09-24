@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Graceful Shutdown | Akash @ Allen Digital</title>
+<meta name="description" content="A short, fun DevOps farewell page: terminal boot sequence, git log, and a meme gallery.">
+
+<!-- favicon: a little teal terminal prompt, inline so no extra file is needed -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='20' fill='%230a0e13'/%3E%3Ctext x='50' y='68' font-size='58' text-anchor='middle' fill='%2364f0c4' font-family='monospace'%3E%3E_%3C/text%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="wrap">
+  <div class="term">
+    <div class="term-bar">
+      <div class="dot r"></div><div class="dot y"></div><div class="dot g"></div>
+      <div class="term-title">akash@allen-digital: ~/seven-years</div>
+    </div>
+
+    <div class="term-body">
+
+      <!-- ============================================================
+           HERO: edit the name / title here
+      ============================================================= -->
+      <section>
+        <div class="hero">
+          <div class="hero-prompt"><span class="sym">$</span> whoami</div>
+          <p class="sub" style="margin-top:2px;">Senior DevOps / SRE Engineer, status: outgoing</p>
+          <h1>systemctl <span class="stop">stop</span> akash.service<span class="cursor">&nbsp;</span></h1>
+          <p class="sub">7-ish years in. Zero data loss. Way too much YAML.</p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           FAREWELL NOTE: edit the message / names here.
+           Add or remove a <span class="names">…</span> group freely.
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">cat FAREWELL.md</span></div>
+        <div class="prose">
+          <p>Before this branch is deleted I want to make a <code>git commit</code> to express my thanks. It's been a pleasure working with such a talented team who have made even 2am pages seem a little less brutal.</p>
+
+          <p>I'd like to express my great gratitude to <span class="names">Probal, Sanyasi, Vinit and Kamesh</span> for their guidance and for confiding in me with the more frightening aspects of the system. As for my partners in crime, <span class="names">Dharshan, Karthik, Suresh and Ashit</span>, each incident channel seemed a bit less intimidating because you were involved.</p>
+
+          <p>This one's also for you, <span class="names">Parmanu</span> and <span class="names">Analytics</span> teams. We didn't just attend the meetings; we actually delivered some features: we developed the Data Platform together with <span class="names">Lohith</span> and <span class="names">Arnay</span>, brought the analytics in line with <span class="names">Madhur</span>, reduced Groundcover to a smaller scale, and then made significant cuts to the cloud bill. OpenSearch went onto a self-hosted cluster and Spark moved onto Spot, each cutting its cost by more than half. That's a <code>git blame</code> I'll take proudly.</p>
+
+          <p>Parting ways is never an <code>rm -rf</code>-clean process, but I know our paths will <code>merge</code> again. Let's stay in touch: <code>connection.status = "keep-alive"</code></p>
+
+          <p>Connect with me on LinkedIn: <a href="https://linkedin.com/in/a-kash-singh" target="_blank" rel="noopener">linkedin.com/in/a-kash-singh</a></p>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           CAREER GIT LOG: add/remove a .row for each highlight
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">git log --oneline -- career.log</span></div>
+        <div class="gitlog">
+          <div class="row"><span class="hash">a1b2c3d</span><span class="tag">feat:</span><span class="msg">moved workloads to EKS without waking finance or on-call</span></div>
+          <div class="row"><span class="hash">9f0e1d2</span><span class="tag">chore:</span><span class="msg">kept Kafka CDC pipelines upright through sheer stubbornness</span></div>
+          <div class="row"><span class="hash">c0ffee1</span><span class="tag">feat:</span><span class="msg">shipped observability that actually observed things</span></div>
+          <div class="row"><span class="hash">d47a91a</span><span class="tag">feat:</span><span class="msg">shipped the Data Platform, Co-authored-by: Lohith, Arnay</span></div>
+          <div class="row"><span class="hash">a4a1c57</span><span class="tag">refactor:</span><span class="msg">harmonized the analytics stack, Co-authored-by: Madhur</span></div>
+          <div class="row"><span class="hash">90ff1ce</span><span class="tag">perf:</span><span class="msg">tuned Groundcover: fewer labels, faster queries</span></div>
+          <div class="row"><span class="hash">5a7e0f5</span><span class="tag">perf:</span><span class="msg">moved OpenSearch to a self-hosted cluster, -56% cost</span></div>
+          <div class="row"><span class="hash">5b07c05</span><span class="tag">perf:</span><span class="msg">put Spark on Spot instances, -53% cost</span></div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           MEME GALLERY: drop new images in assets/memes/ and add
+           a matching <figure class="meme-card"> block below.
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">xdg-open assets/memes/*.png</span></div>
+        <div class="meme-grid">
+          <figure class="meme-card">
+            <img src="assets/memes/rocket-deploy.png" alt="Meme: wrote one YAML file, accidentally deployed to prod, next to a rocket launching off a terminal.">
+            <figcaption>rocket-deploy.png</figcaption>
+          </figure>
+          <figure class="meme-card">
+            <img src="assets/memes/coffee-terraform.png" alt="Meme: five cups of coffee in, terraform plan still running, next to a steaming mug.">
+            <figcaption>coffee-terraform.png</figcaption>
+          </figure>
+          <figure class="meme-card">
+            <img src="assets/memes/fire-dashboard.png" alt="Meme: prod is on fire but all my dashboards are green, next to a calm monitor character.">
+            <figcaption>fire-dashboard.png</figcaption>
+          </figure>
+          <figure class="meme-card">
+            <img src="assets/memes/ship-it.png" alt="Meme: it works on my machine, so we shipped the machine, next to a container ship character.">
+            <figcaption>ship-it.png</figcaption>
+          </figure>
+          <figure class="meme-card">
+            <img src="assets/memes/oncall-trophy.png" alt="Meme: survived seven years of on-call, achievement unlocked freedom, next to a trophy.">
+            <figcaption>oncall-trophy.png</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           SPECIAL THANKS: add/remove a <tr> per person
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">kubectl get pods -n special-thanks</span></div>
+        <div class="tablewrap">
+          <table class="pods">
+            <thead>
+              <tr><th>Name</th><th>Ready</th><th>Status</th><th>Role</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>sanyasi</td><td>1/1</td><td class="status">Running</td><td class="role">mentor</td></tr>
+              <tr><td>vinit</td><td>1/1</td><td class="status">Running</td><td class="role">mentor</td></tr>
+              <tr><td>kamesh</td><td>1/1</td><td class="status">Running</td><td class="role">mentor</td></tr>
+              <tr><td>dharshan</td><td>1/1</td><td class="status">Running</td><td class="role">teammate</td></tr>
+              <tr><td>karthik</td><td>1/1</td><td class="status">Running</td><td class="role">teammate</td></tr>
+              <tr><td>suresh</td><td>1/1</td><td class="status">Running</td><td class="role">teammate</td></tr>
+              <tr><td>ashit</td><td>1/1</td><td class="status">Running</td><td class="role">teammate</td></tr>
+              <tr><td>lohith</td><td>1/1</td><td class="status">Running</td><td class="role">data platform</td></tr>
+              <tr><td>arnay</td><td>1/1</td><td class="status">Running</td><td class="role">data platform</td></tr>
+              <tr><td>madhur</td><td>1/1</td><td class="status">Running</td><td class="role">analytics</td></tr>
+              <tr><td>parmanu-team</td><td>n/n</td><td class="status">Running</td><td class="role">team</td></tr>
+              <tr><td>analytics-team</td><td>n/n</td><td class="status">Running</td><td class="role">team</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           BADGES: add/remove a <span class="badge">
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">cat README.badges</span></div>
+        <div class="badges">
+          <span class="badge"><span class="k">experience</span><span class="v">7+ yrs</span></span>
+          <span class="badge"><span class="k">builds</span><span class="v">passing</span></span>
+          <span class="badge amber"><span class="k">coffee</span><span class="v">critical</span></span>
+          <span class="badge"><span class="k">regrets</span><span class="v">0</span></span>
+          <span class="badge rose"><span class="k">goodbyes</span><span class="v">hard</span></span>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           GUESTBOOK: reads data/messages.json at runtime. Don't hand-edit
+           this section; edit data/messages.json (or add via GitHub) instead.
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">tail -f guestbook.log</span></div>
+        <div id="guestbook" class="gitlog">
+          <div class="row"><span class="msg" style="color:var(--text-dim);">loading…</span></div>
+        </div>
+      </section>
+
+      <!-- ============================================================
+           LEAVE A MESSAGE: this CTA's link is filled in once the repo
+           exists (see README.md). Safe to edit the wording.
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">echo "your turn" &gt;&gt; guestbook.log</span></div>
+        <div class="shell">
+          <div class="l">1. fork this repo (or edit directly if you have access)</div>
+          <div class="l">2. open <span class="sym">data/messages.json</span>, add:</div>
+          <div class="l out">   { "name": "you", "message": "…" }</div>
+          <div class="l">3. open a pull request</div>
+          <div class="l ok">4. merged → the site redeploys itself. no extra steps.</div>
+        </div>
+        <p style="margin-top:12px;">
+          <a id="edit-link" class="mono" href="https://github.com/a-kash-singh/goodbye-allen/edit/main/data/messages.json" target="_blank" rel="noopener" style="font-size:13px;">→ add your message on GitHub</a>
+        </p>
+      </section>
+
+      <!-- ============================================================
+           SIGN OFF
+      ============================================================= -->
+      <section>
+        <div class="cmd"><span class="sym">$</span> <span class="cmdtext">docker-compose -f friendship.yml down</span></div>
+        <div class="shell">
+          <div class="l">$ docker-compose -f friendship.yml down --volumes=memories --keep=contacts</div>
+          <div class="l out">Stopping allen-digital_akash        ... <span class="sym">done</span></div>
+          <div class="l out">Removing container akash_singh1     ... <span class="sym">done</span></div>
+          <div class="l warn">WARNING: network "slack-dms" is external, not removed</div>
+          <div class="l" style="margin-top:8px;">$ echo "connection: $STATUS"</div>
+          <div class="l ok">connection: keep-alive</div>
+          <div class="l" style="margin-top:8px;">$ open <a href="https://linkedin.com/in/a-kash-singh" target="_blank" rel="noopener">linkedin.com/in/a-kash-singh</a>  <span style="color:var(--text-dim);"># let's connect</span></div>
+        </div>
+      </section>
+
+      <footer>
+        <div>SEE ALSO: friendship(1), <a href="https://linkedin.com/in/a-kash-singh" target="_blank" rel="noopener">linkedin(5)</a>, reunion(8)</div>
+        <div>exit code: <span class="exit">0</span>. success, no errors, just feelings</div>
+      </footer>
+
+    </div>
+  </div>
+</div>
+
+<script>
+(function () {
+  function escapeHtml(s) {
+    return String(s).replace(/[&<>"']/g, function (c) {
+      return { "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c];
+    });
+  }
+
+  var el = document.getElementById("guestbook");
+
+  fetch("data/messages.json", { cache: "no-store" })
+    .then(function (res) { return res.json(); })
+    .then(function (messages) {
+      if (!Array.isArray(messages) || messages.length === 0) {
+        el.innerHTML = '<div class="row"><span class="msg" style="color:var(--text-dim);">no messages yet. be the first to <code style="background:none;border:none;padding:0;">git commit</code> one, see below ↓</span></div>';
+        return;
+      }
+      el.innerHTML = messages.map(function (m) {
+        var name = escapeHtml(m.name || "anon");
+        var msg = escapeHtml(m.message || "");
+        return '<div class="row" style="white-space:normal;"><span class="hash">' + name + "</span><span class=\"msg\">" + msg + "</span></div>";
+      }).join("");
+    })
+    .catch(function () {
+      el.innerHTML = '<div class="row"><span class="msg" style="color:var(--text-dim);">guestbook.log unavailable. this only loads once the site is deployed (relative fetch needs a real host, not a local double-click).</span></div>';
+    });
+})();
+</script>
+
+</body>
+</html>
